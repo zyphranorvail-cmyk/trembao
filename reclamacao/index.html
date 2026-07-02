@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17997228593"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'AW-17997228593');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Abrir ticket de reclamação - Caçambas Já. Registre sua reclamação e acompanhe o atendimento.">
+    <meta name="robots" content="index, follow">
+    <title>Ticket de Reclamação | Caçambas Já</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;display=swap" rel="stylesheet">
+    <style>
+        .ticket-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 20px;
+        }
+        .ticket-card {
+            background: var(--bg-white);
+            border: 2px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow);
+        }
+        .ticket-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .ticket-header h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+        .ticket-header p {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+        .form-group label .required {
+            color: #dc3545;
+        }
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group textarea {
+            width: 100%;
+            padding: 0.875rem;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(234, 179, 8, 0.1);
+        }
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        .file-upload {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+        .file-upload input[type="file"] {
+            position: absolute;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+        .file-upload-label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            border: 2px dashed var(--border-color);
+            border-radius: 8px;
+            background: #f9fafb;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        .file-upload-label:hover {
+            border-color: var(--primary-color);
+            background: #fefce8;
+        }
+        .file-upload-label.has-file {
+            border-color: var(--primary-color);
+            background: #fefce8;
+        }
+        .file-upload-label svg {
+            width: 24px;
+            height: 24px;
+            margin-right: 0.5rem;
+            color: var(--primary-color);
+        }
+        .file-name {
+            margin-top: 0.5rem;
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+        .file-preview {
+            margin-top: 1rem;
+            max-width: 100%;
+            border-radius: 8px;
+            border: 2px solid var(--border-color);
+            display: none;
+        }
+        .file-preview img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 6px;
+        }
+        .btn-submit {
+            width: 100%;
+            padding: 1rem 2rem;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+        .btn-submit:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-hover);
+        }
+        .btn-submit:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+        .confirmation-box {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+            background: #d4edda;
+            border: 2px solid #28a745;
+            border-radius: 12px;
+            margin-top: 2rem;
+        }
+        .confirmation-box.show {
+            display: block;
+        }
+        .confirmation-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+        .confirmation-box h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #155724;
+            margin-bottom: 1rem;
+        }
+        .ticket-code {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            background: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            display: inline-block;
+            margin: 1rem 0;
+            border: 2px solid var(--primary-color);
+        }
+        .confirmation-box p {
+            color: #155724;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 0.5rem;
+        }
+        .deadline-info {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            border: 2px solid #28a745;
+        }
+        .deadline-info strong {
+            color: var(--primary-color);
+        }
+        .error-message {
+            display: none;
+            background: #f8d7da;
+            color: #721c24;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            border: 2px solid #f5c6cb;
+        }
+        .error-message.show {
+            display: block;
+        }
+        @media (max-width: 768px) {
+            .ticket-container {
+                margin: 1rem auto;
+            }
+            .ticket-card {
+                padding: 1.5rem;
+            }
+            .ticket-header h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M20 8h-3V5H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"
+                                fill="#001F3F" />
+                        </svg>
+                    </div>
+                    <div class="logo-text">
+                        <h1 class="logo-title">Caçambas Já</h1>
+                        <p class="logo-tagline">Disk Caçamba de Entulhos e Resíduos</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="ticket-container">
+            <div class="ticket-card">
+                <div class="ticket-header">
+                    <h1>📋 Ticket de Reclamação</h1>
+                    <p>Preencha o formulário abaixo para abrir um chamado</p>
+                </div>
+                <div class="error-message" id="errorMessage"></div>
+                <form id="ticketForm">
+                    <div class="form-group">
+                        <label for="nome">Nome Completo <span class="required">*</span></label>
+                        <input type="text" id="nome" name="nome" required placeholder="Digite seu nome completo">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-mail <span class="required">*</span></label>
+                        <input type="email" id="email" name="email" required placeholder="seu@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="descricao">Descrição do Motivo <span class="required">*</span></label>
+                        <textarea id="descricao" name="descricao" required
+                            placeholder="Descreva detalhadamente o motivo da sua reclamação..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="comprovante">Comprovante de Transferência <span class="required">*</span></label>
+                        <div class="file-upload">
+                            <input type="file" id="comprovante" name="comprovante" accept="image/*" required>
+                            <label for="comprovante" class="file-upload-label" id="fileLabel">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                                </svg>
+                                <span>Clique para selecionar uma imagem</span>
+                            </label>
+                            <div class="file-name" id="fileName"></div>
+                            <div class="file-preview" id="filePreview">
+                                <img id="previewImage" src="#" alt="Preview">
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-submit" id="submitBtn">
+                        Enviar Reclamação
+                    </button>
+                </form>
+                <div class="confirmation-box" id="confirmationBox">
+                    <div class="confirmation-icon">✅</div>
+                    <h2>Ticket Criado com Sucesso!</h2>
+                    <p>Seu chamado foi registrado e está sendo processado.</p>
+                    <div class="ticket-code" id="ticketCode"></div>
+                    <div class="deadline-info">
+                        <p><strong>Prazo de Atendimento:</strong></p>
+                        <p id="deadlineText"></p>
+                    </div>
+                    <p style="margin-top: 1rem; font-size: 0.9rem;">Você receberá um e-mail de confirmação em breve.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <section class="final-cta-section">
+        <div class="container">
+            <h2 class="cta-title">Precisa Resolver Hoje?</h2>
+            <p class="cta-text">Não deixe o entulho atrasar sua obra.</p>
+            <p class="cta-description">
+                Clique no botão abaixo e fale agora com a Caçambas Já pelo WhatsApp. Atendimento rápido e confirmação
+                imediata.
+            </p>
+            <a href="/checkout/" class="btn btn-primary btn-large">
+                QUERO MINHA CAÇAMBA AGORA
+            </a>
+        </div>
+    </section>
+    <script>
+        // Preview da imagem
+        const fileInput = document.getElementById('comprovante');
+        const fileLabel = document.getElementById('fileLabel');
+        const fileName = document.getElementById('fileName');
+        const filePreview = document.getElementById('filePreview');
+        const previewImage = document.getElementById('previewImage');
+        fileInput.addEventListener('change', function (e) {
+            const file = e.target.files[0];
+            if (file) {
+                // Validar tipo de arquivo
+                if (!file.type.startsWith('image/index.html')) {
+                    showError('Por favor, selecione apenas arquivos de imagem.');
+                    fileInput.value = '';
+                    return;
+                }
+                // Validar tamanho (máximo 5MB)
+                if (file.size > 5 * 1024 * 1024) {
+                    showError('A imagem deve ter no máximo 5MB.');
+                    fileInput.value = '';
+                    return;
+                }
+                fileName.textContent = file.name;
+                fileLabel.classList.add('has-file');
+                // Mostrar preview
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    previewImage.src = e.target.result;
+                    filePreview.style.display = 'block';
+                };
+                reader.readAsDataURL(file);
+            } else {
+                fileName.textContent = '';
+                fileLabel.classList.remove('has-file');
+                filePreview.style.display = 'none';
+            }
+        });
+        // Submissão do formulário
+        const form = document.getElementById('ticketForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const confirmationBox = document.getElementById('confirmationBox');
+        const ticketCode = document.getElementById('ticketCode');
+        const deadlineText = document.getElementById('deadlineText');
+        form.addEventListener('submit', async function (e) {
+            e.preventDefault();
+            // Ocultar erro anterior
+            hideError();
+            // Desabilitar botão
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Enviando...';
+            // Criar FormData
+            const formData = new FormData(form);
+            try {
+                const response = await fetch('/processar_reclamacao.json', {
+                    method: 'POST',
+                    body: formData
+                });
+                const result = await response.json();
+                if (result.sucesso) {
+                    // Mostrar confirmação
+                    ticketCode.textContent = result.codigo_ticket;
+                    deadlineText.textContent = result.prazo_texto;
+                    // Ocultar formulário e mostrar confirmação
+                    form.style.display = 'none';
+                    confirmationBox.classList.add('show');
+                    // Scroll para confirmação
+                    confirmationBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                } else {
+                    showError(result.erro || 'Erro ao processar a reclamação. Tente novamente.');
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Enviar Reclamação';
+                }
+            } catch (error) {
+                console.error('Erro:', error);
+                showError('Erro ao enviar a reclamação. Verifique sua conexão e tente novamente.');
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Enviar Reclamação';
+            }
+        });
+        function showError(message) {
+            const errorDiv = document.getElementById('errorMessage');
+            errorDiv.textContent = message;
+            errorDiv.classList.add('show');
+            errorDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        function hideError() {
+            const errorDiv = document.getElementById('errorMessage');
+            errorDiv.classList.remove('show');
+        }
+    </script>
+</body>
+</html>

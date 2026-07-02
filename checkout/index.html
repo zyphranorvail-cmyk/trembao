@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Finalize seu pedido de aluguel de caçamba - Caçambas Já. Pagamento seguro via PIX ou Cartão. Entrega rápida em São Paulo e região.">
+    <meta name="keywords"
+        content="checkout caçamba, finalizar pedido caçamba, pagamento caçamba, aluguel caçamba São Paulo, caçamba online">
+    <meta name="author" content="Caçambas Já">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://cacambasja.com.br/checkout.html">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CheckoutPage",
+      "name": "Checkout - Caçambas Já",
+      "description": "Finalize seu pedido de aluguel de caçamba com pagamento seguro",
+      "url": "https://cacambasja.com.br/checkout.html",
+      "mainEntity": {
+        "@type": "Service",
+        "name": "Aluguel de Caçambas",
+        "provider": {
+          "@type": "LocalBusiness",
+          "name": "Caçambas Já",
+          "telephone": "+5519988325341",
+          "email": "contato@cacambasja.com.br",
+          "address": {
+            "@type": "PostalAddress",
+            "addressRegion": "PR",
+            "addressCountry": "BR"
+          }
+        }
+      }
+    }
+    </script>
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://cacambasja.com.br/checkout.html">
+    <meta property="og:title" content="Checkout - Finalize seu Pedido | Caçambas Já">
+    <meta property="og:description"
+        content="Finalize seu pedido de aluguel de caçamba com pagamento seguro via PIX ou Cartão. Entrega rápida em São Paulo.">
+    <meta property="og:image" content="https://cacambasja.com.br/public/cacambasja.jpeg">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://cacambasja.com.br/checkout.html">
+    <meta property="twitter:title" content="Checkout - Finalize seu Pedido | Caçambas Já">
+    <meta property="twitter:description" content="Finalize seu pedido de aluguel de caçamba com pagamento seguro.">
+    <meta property="twitter:image" content="https://cacambasja.com.br/public/cacambasja.jpeg">
+    <title>Checkout - Finalize seu Pedido | Caçambas Já</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;display=swap" rel="stylesheet">
+    <style>
+        .checkout-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 20px;
+        }
+        .checkout-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+        .form-section {
+            background: var(--bg-white);
+            border: 2px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        .form-section h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            transition: border-color 0.3s ease;
+        }
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+        .form-group input:disabled {
+            background-color: var(--bg-light);
+            cursor: not-allowed;
+        }
+        .radio-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.25rem;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: var(--bg-white);
+            position: relative;
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+        }
+        .radio-option:hover {
+            border-color: var(--primary-color);
+            background: #FEFCE8;
+        }
+        .radio-option input[type="radio"] {
+            width: auto;
+            margin: 0;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+        .radio-option.selected {
+            border-color: var(--primary-color);
+            background: #FEFCE8;
+        }
+        .radio-option input[type="radio"]:checked+label {
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+        .radio-option label {
+            margin: 0;
+            cursor: pointer;
+            font-weight: 500;
+        }
+        .radio-option input[type="radio"]:checked~label {
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+        .pricing-grid-checkout {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        .pricing-card-checkout {
+            background: var(--bg-white);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            cursor: pointer;
+        }
+        .pricing-card-checkout:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+        .pricing-card-checkout.selected {
+            border-color: var(--primary-color);
+            border-width: 3px;
+            background: linear-gradient(135deg, #FEFCE8 0%, var(--bg-white) 100%);
+        }
+        .pricing-card-checkout input[type="checkbox"] {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+            accent-color: var(--primary-color);
+        }
+        .pricing-size-checkout {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        .pricing-title-checkout {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: var(--text-dark);
+        }
+        .pricing-price-checkout {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--secondary-color);
+            margin: 0.75rem 0;
+        }
+        .pricing-description-checkout {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+        .days-input-group {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .days-input-group label {
+            margin: 0;
+            white-space: nowrap;
+        }
+        .days-input-group input {
+            width: 100px;
+            padding: 0.75rem;
+            text-align: center;
+        }
+        .delivery-date-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .total-summary {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: var(--bg-white);
+            padding: 2rem;
+            border-radius: 16px;
+            margin-top: 2rem;
+            position: sticky;
+            top: 100px;
+        }
+        .total-summary h3 {
+            color: var(--bg-white);
+            margin-bottom: 1.5rem;
+        }
+        .total-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .total-item:last-child {
+            border-bottom: none;
+        }
+        .total-item-label {
+            font-size: 1rem;
+            font-weight: 500;
+        }
+        .total-item-value {
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+        .total-final {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        .total-final-label {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        .total-final-value {
+            font-size: 2rem;
+            font-weight: 800;
+        }
+        .retirada-info {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            font-size: 0.95rem;
+        }
+        .retirada-info strong {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        .btn-submit {
+            width: 100%;
+            margin-top: 2rem;
+            padding: 1.25rem;
+            font-size: 1.2rem;
+            background: var(--bg-white);
+            color: var(--primary-color);
+            border: none;
+        }
+        .btn-submit:hover {
+            background: rgba(255, 255, 255, 0.95);
+            transform: translateY(-2px);
+        }
+        /* Modal de Pagamento */
+        .payment-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 10000;
+            overflow-y: auto;
+            padding: 2rem 1rem;
+        }
+        .payment-modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .payment-modal-content {
+            background: var(--bg-white);
+            border-radius: 16px;
+            max-width: 600px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+        .payment-modal-header {
+            padding: 2rem;
+            border-bottom: 2px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            background: var(--bg-white);
+            z-index: 10;
+        }
+        .payment-modal-header h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin: 0;
+        }
+        .payment-modal-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-light);
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+        .payment-modal-close:hover {
+            background: var(--bg-light);
+            color: var(--text-dark);
+        }
+        .payment-modal-body {
+            padding: 2rem;
+        }
+        .order-summary {
+            background: var(--bg-light);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .order-summary h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+        .order-summary-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .order-summary-item:last-child {
+            border-bottom: none;
+        }
+        .order-summary-label {
+            font-weight: 500;
+            color: var(--text-light);
+        }
+        .order-summary-value {
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+        .order-total {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 2px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+        .payment-methods {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .payment-method-btn {
+            padding: 1.5rem;
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            background: var(--bg-white);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+        .payment-method-btn:hover {
+            border-color: var(--primary-color);
+            background: #FEFCE8;
+        }
+        .payment-method-btn.selected {
+            border-color: var(--primary-color);
+            background: linear-gradient(135deg, #FEFCE8 0%, var(--bg-white) 100%);
+            border-width: 3px;
+        }
+        .payment-secure-badge {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            transition: opacity 0.3s ease;
+        }
+        .payment-secure-badge.hidden {
+            display: none;
+        }
+        .payment-secure-image {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        .payment-form {
+            display: none;
+        }
+        .payment-form.active {
+            display: block;
+        }
+        .payment-form-group {
+            margin-bottom: 1.5rem;
+        }
+        .payment-form-group label {
+            display: block;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+        .payment-form-group input {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            transition: border-color 0.3s ease;
+        }
+        .payment-form-group input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+        .payment-form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        .btn-payment {
+            width: 100%;
+            padding: 1.25rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            background: #28A745;
+            color: var(--bg-white);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        .btn-payment:hover {
+            background: #218838;
+            transform: translateY(-2px);
+        }
+        .btn-payment:disabled {
+            background: #6c757d;
+            cursor: not-allowed;
+            transform: none;
+        }
+        .loading-spinner {
+            display: none;
+            width: 24px;
+            height: 24px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-top-color: var(--bg-white);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+        .loading-spinner.active {
+            display: block;
+        }
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        /* Estilos para área de status do PIX */
+        #pixStatusArea {
+            transition: all 0.3s ease;
+        }
+        #pixStatusContent {
+            min-height: 40px;
+        }
+        #statusSpinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(0, 0, 0, 0.1);
+            border-top-color: var(--primary-color);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+        .error-message {
+            display: none;
+            background: #F8D7DA;
+            border: 2px solid #F5C6CB;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .error-message.active {
+            display: block;
+        }
+        .error-message h4 {
+            color: #721C24;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        .error-message p {
+            color: #721C24;
+            margin-bottom: 1rem;
+        }
+        .btn-try-again {
+            background: var(--primary-color);
+            color: var(--bg-white);
+            border: none;
+            padding: 0.875rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .btn-try-again:hover {
+            background: var(--primary-dark);
+        }
+        @media (max-width: 768px) {
+            .payment-modal {
+                padding: 1rem;
+            }
+            .payment-modal-content {
+                max-height: 95vh;
+            }
+            .payment-modal-header {
+                padding: 1.5rem;
+            }
+            .payment-modal-header h2 {
+                font-size: 1.5rem;
+            }
+            .payment-modal-body {
+                padding: 1.5rem;
+            }
+            .payment-methods {
+                grid-template-columns: 1fr;
+            }
+            .payment-form-row {
+                grid-template-columns: 1fr;
+            }
+            .payment-secure-badge {
+                padding: 0.875rem;
+            }
+            .payment-secure-image {
+                max-width: 90%;
+            }
+        }
+        @media (max-width: 1200px) {
+            .checkout-container {
+                padding: 1.5rem 20px;
+            }
+            .checkout-form {
+                gap: 2.5rem;
+            }
+        }
+        @media (max-width: 968px) {
+            .checkout-form {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .total-summary {
+                position: relative;
+                top: 0;
+                margin-top: 0;
+            }
+            .delivery-date-group {
+                grid-template-columns: 1fr;
+            }
+            .form-section {
+                padding: 1.5rem;
+            }
+            .form-section h3 {
+                font-size: 1.3rem;
+            }
+        }
+        @media (max-width: 768px) {
+            .checkout-container {
+                padding: 1rem 15px;
+            }
+            .section-title {
+                font-size: 1.5rem;
+            }
+            .pricing-grid-checkout {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            .pricing-card-checkout {
+                padding: 1.25rem;
+            }
+            .pricing-size-checkout {
+                font-size: 1.75rem;
+            }
+            .pricing-price-checkout {
+                font-size: 1.25rem;
+            }
+            .radio-group {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+            .radio-option {
+                width: 100%;
+                padding: 0.625rem 1rem;
+            }
+            .form-group {
+                margin-bottom: 1.25rem;
+            }
+            .form-group label {
+                font-size: 0.95rem;
+            }
+            .form-group input,
+            .form-group select {
+                padding: 0.75rem;
+                font-size: 0.95rem;
+            }
+            .days-input-group {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.75rem;
+            }
+            .days-input-group input {
+                width: 100%;
+                max-width: 150px;
+            }
+            .total-summary {
+                padding: 1.5rem;
+            }
+            .total-summary h3 {
+                font-size: 1.3rem;
+            }
+            .total-final-value {
+                font-size: 1.75rem;
+            }
+            .btn-submit {
+                padding: 1rem;
+                font-size: 1.1rem;
+            }
+        }
+        @media (max-width: 480px) {
+            .checkout-container {
+                padding: 0.75rem 10px;
+            }
+            .section-title {
+                font-size: 1.25rem;
+                margin-bottom: 1.5rem;
+            }
+            .form-section {
+                padding: 1.25rem;
+                margin-bottom: 1.5rem;
+            }
+            .form-section h3 {
+                font-size: 1.1rem;
+                margin-bottom: 1.25rem;
+            }
+            .pricing-card-checkout {
+                padding: 1rem;
+            }
+            .pricing-size-checkout {
+                font-size: 1.5rem;
+            }
+            .pricing-title-checkout {
+                font-size: 0.9rem;
+            }
+            .pricing-price-checkout {
+                font-size: 1.1rem;
+            }
+            .pricing-description-checkout {
+                font-size: 0.8rem;
+            }
+            .total-summary {
+                padding: 1.25rem;
+            }
+            .total-summary h3 {
+                font-size: 1.1rem;
+            }
+            .total-item-label,
+            .total-item-value {
+                font-size: 0.9rem;
+            }
+            .total-final-label {
+                font-size: 1.25rem;
+            }
+            .total-final-value {
+                font-size: 1.5rem;
+            }
+            .btn-submit {
+                padding: 0.875rem;
+                font-size: 1rem;
+            }
+            .retirada-info {
+                padding: 0.75rem;
+                font-size: 0.85rem;
+            }
+        }
+        /* Ajustes adicionais para melhor responsividade */
+        @media (max-width: 968px) {
+            .header-content {
+                flex-wrap: wrap;
+            }
+            .logo {
+                width: 100%;
+                justify-content: center;
+                margin-bottom: 0.5rem;
+            }
+        }
+        @media (max-width: 768px) {
+            .header {
+                padding: 0.75rem 0;
+            }
+            .header-content {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .logo {
+                justify-content: center;
+            }
+            .logo-title {
+                font-size: 1.25rem;
+            }
+            .logo-tagline {
+                font-size: 0.75rem;
+            }
+        }
+    </style>
+    <script>
+        // Configuração centralizada do WhatsApp (será usada no script principal)
+        window.WHATSAPP_NUMBER = '5519982839538';
+        window.PHONE_DISPLAY = '(19) 98283-9538';
+        window.PHONE_LINK = `tel:+55${window.WHATSAPP_NUMBER}`;
+    </script>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M20 8h-3V5H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"
+                                fill="#001F3F" />
+                        </svg>
+                    </div>
+                    <div class="logo-text">
+                        <h1 class="logo-title">Caçambas Já</h1>
+                        <p class="logo-tagline">Disk Caçamba de Entulhos e Resíduos</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="checkout-container">
+            <h2 class="section-title">Finalize seu Pedido</h2>
+            <div class="checkout-form">
+                <div class="form-column">
+                    <div class="form-section">
+                        <h3>Dados de Entrega</h3>
+                        <div class="form-group">
+                            <label for="nome">Nome Completo *</label>
+                            <input type="text" id="nome" name="nome" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cep">CEP *</label>
+                            <input type="text" id="cep" name="cep" maxlength="8" pattern="[0-9]{8}"
+                                placeholder="13242148" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="logradouro">Cidade *</label>
+                            <input type="text" id="logradouro" name="logradouro" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="bairro">Bairro *</label>
+                            <input type="text" id="bairro" name="bairro" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="estado">Estado *</label>
+                            <input type="text" id="estado" name="estado" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="numero">Número *</label>
+                            <input type="text" id="numero" name="numero" required>
+                        </div>
+                    </div>
+                    <div class="form-section">
+                        <h3>Detalhes do Pedido</h3>
+                        <div class="form-group">
+                            <label>Onde vai ficar a caçamba? *</label>
+                            <div class="radio-group">
+                                <div class="radio-option">
+                                    <input type="radio" id="localizacao-calcada" name="localizacao" value="Calçada"
+                                        required>
+                                    <label for="localizacao-calcada">Calçada</label>
+                                </div>
+                                <div class="radio-option">
+                                    <input type="radio" id="localizacao-garagem" name="localizacao" value="Garagem"
+                                        required>
+                                    <label for="localizacao-garagem">Garagem</label>
+                                </div>
+                                <div class="radio-option">
+                                    <input type="radio" id="localizacao-terreno" name="localizacao" value="Terreno"
+                                        required>
+                                    <label for="localizacao-terreno">Terreno</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Tipo de Entulho *</label>
+                            <div class="radio-group">
+                                <div class="radio-option">
+                                    <input type="radio" id="tipo-construcao" name="tipo-entulho"
+                                        value="Construção (Alvenaria, Gesso, etc.)" required>
+                                    <label for="tipo-construcao">Construção (Alvenaria, Gesso, etc.)</label>
+                                </div>
+                                <div class="radio-option">
+                                    <input type="radio" id="tipo-poda" name="tipo-entulho" value="Poda (Galhos, folhas)"
+                                        required>
+                                    <label for="tipo-poda">Poda (Galhos, folhas)</label>
+                                </div>
+                                <div class="radio-option">
+                                    <input type="radio" id="tipo-moveis" name="tipo-entulho"
+                                        value="Móveis (Madeira, estofados)" required>
+                                    <label for="tipo-moveis">Móveis (Madeira, estofados)</label>
+                                </div>
+                                <div class="radio-option">
+                                    <input type="radio" id="tipo-misto" name="tipo-entulho"
+                                        value="Misto (Diversos materiais)" required>
+                                    <label for="tipo-misto">Misto (Diversos materiais)</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-section">
+                        <h3>Selecione as Caçambas</h3>
+                        <div class="pricing-grid-checkout">
+                            <div class="pricing-card-checkout" data-size="3" data-price="180">
+                                <input type="checkbox" id="cacamba-3" value="3" data-price="180">
+                                <div class="pricing-size-checkout">3m³</div>
+                                <h4 class="pricing-title-checkout">Ideal para pequenas reformas</h4>
+                                <div class="pricing-price-checkout">R$ 180,00</div>
+                                <p class="pricing-description-checkout">Indicada para limpezas residenciais, pequenas
+                                    demolições e descarte leve.</p>
+                            </div>
+                            <div class="pricing-card-checkout" data-size="4" data-price="260">
+                                <input type="checkbox" id="cacamba-4" value="4" data-price="260">
+                                <div class="pricing-size-checkout">4m³</div>
+                                <h4 class="pricing-title-checkout">A mais solicitada</h4>
+                                <div class="pricing-price-checkout">R$ 260,00</div>
+                                <p class="pricing-description-checkout">Equilíbrio ideal entre custo e capacidade para
+                                    reformas médias.</p>
+                            </div>
+                            <div class="pricing-card-checkout" data-size="5" data-price="340">
+                                <input type="checkbox" id="cacamba-5" value="5" data-price="340">
+                                <div class="pricing-size-checkout">5m³</div>
+                                <h4 class="pricing-title-checkout">Reformas maiores</h4>
+                                <div class="pricing-price-checkout">R$ 340,00</div>
+                                <p class="pricing-description-checkout">Recomendada para troca de pisos, reboco e obras
+                                    com maior volume de resíduos.</p>
+                            </div>
+                            <div class="pricing-card-checkout" data-size="7" data-price="460">
+                                <input type="checkbox" id="cacamba-7" value="7" data-price="460">
+                                <div class="pricing-size-checkout">7m³</div>
+                                <h4 class="pricing-title-checkout">Construções e grandes volumes</h4>
+                                <div class="pricing-price-checkout">R$ 460,00</div>
+                                <p class="pricing-description-checkout">Ideal para obras completas e descarte de grande
+                                    quantidade de entulho.</p>
+                            </div>
+                            <div class="pricing-card-checkout" data-size="10" data-price="720">
+                                <input type="checkbox" id="cacamba-10" value="10" data-price="720">
+                                <div class="pricing-size-checkout">10m³</div>
+                                <h4 class="pricing-title-checkout">Alto volume de descarte</h4>
+                                <div class="pricing-price-checkout">R$ 720,00</div>
+                                <p class="pricing-description-checkout">Indicada para grandes construções e resíduos
+                                    pesados.</p>
+                            </div>
+                        </div>
+                        <div class="form-group days-input-group">
+                            <label for="dias">Quantidade de Dias:</label>
+                            <input type="number" id="dias" name="dias" min="1" value="1" required>
+                        </div>
+                    </div>
+                    <div class="form-section">
+                        <h3>Data e Período de Entrega</h3>
+                        <div class="form-group">
+                            <label for="data-entrega">Data de Entrega *</label>
+                            <input type="date" id="data-entrega" name="data-entrega" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Período de Entrega *</label>
+                            <div class="radio-group">
+                                <div class="radio-option">
+                                    <input type="radio" id="periodo-manha" name="periodo" value="Manhã" required>
+                                    <label for="periodo-manha">Manhã</label>
+                                </div>
+                                <div class="radio-option">
+                                    <input type="radio" id="periodo-tarde" name="periodo" value="Tarde" required>
+                                    <label for="periodo-tarde">Tarde</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="retirada-info" id="retirada-info" style="display: none;">
+                            <strong>Data de Retirada:</strong>
+                            <span id="data-retirada-text"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-column">
+                    <div class="total-summary">
+                        <h3>Resumo do Pedido</h3>
+                        <div id="resumo-cacambas"></div>
+                        <div class="total-item">
+                            <span class="total-item-label">Período:</span>
+                            <span class="total-item-value" id="total-dias">1 dia(s) — 1 semana(s) cobrada(s)</span>
+                        </div>
+                        <div class="total-final">
+                            <span class="total-final-label">Total:</span>
+                            <span class="total-final-value" id="total-valor">R$ 0,00</span>
+                        </div>
+                        <button type="button" class="btn btn-submit" id="btn-finalizar" onclick="finalizarPedido()">
+                            Finalizar Pedido
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div id="paymentModal" class="payment-modal">
+        <div class="payment-modal-content">
+            <div class="payment-modal-header">
+                <button class="payment-modal-close" onclick="fecharModalPagamento()">&times;</button>
+                <h2>Finalizar Pagamento</h2>
+            </div>
+            <div class="payment-modal-body">
+                <div id="orderSummary" class="order-summary"></div>
+                <div id="errorMessage" class="error-message">
+                    <h4>Erro no Pagamento</h4>
+                    <p>Ocorreu um erro ao processar seu pagamento. Por favor, tente novamente.</p>
+                    <button class="btn-try-again" onclick="voltarEscolhaPagamento()">Tentar de outra forma</button>
+                </div>
+                <div id="paymentMethods" class="payment-methods">
+                    <button class="payment-method-btn" onclick="escolherMetodoPagamento('pix', this)">
+                        PIX
+                    </button>
+                    <button class="payment-method-btn" onclick="escolherMetodoPagamento('cartao', this)">
+                        Cartão de Crédito
+                    </button>
+                </div>
+                <div id="paymentSecureBadge" class="payment-secure-badge">
+                    <img src="https://kitescolarsaopaulo.com.br/layout/img/pagamento-seguro.webp" alt="Pagamento Seguro"
+                        class="payment-secure-image">
+                </div>
+                <div id="pixForm" class="payment-form">
+                    <div class="payment-form-group">
+                        <label for="cpfPix">CPF *</label>
+                        <input type="text" id="cpfPix" name="cpfPix" maxlength="14" placeholder="000.000.000-00"
+                            required>
+                    </div>
+                    <div class="payment-form-group">
+                        <label for="emailPix">Email *</label>
+                        <input type="email" id="emailPix" name="emailPix" placeholder="seu@email.com" required>
+                    </div>
+                    <div class="payment-form-group">
+                        <label for="telefonePix">Telefone *</label>
+                        <input type="text" id="telefonePix" name="telefonePix" maxlength="15"
+                            placeholder="(00) 00000-0000" required>
+                    </div>
+                    <button class="btn-payment" onclick="processarPagamento('pix', this)">
+                        <span class="loading-spinner" id="pixSpinner"></span>
+                        <span id="pixButtonText">Gerar QR Code PIX</span>
+                    </button>
+                </div>
+                <div id="pixQrCodeArea" class="payment-form" style="display: none;">
+                    <div class="payment-form-group" style="text-align: center;">
+                        <h3 style="margin-bottom: 1rem; color: var(--text-dark);">Escaneie o QR Code ou copie o código
+                            PIX</h3>
+                        <div id="qrcodeImage"
+                            style="margin: 1.5rem auto; max-width: 300px; background: white; padding: 1rem; border-radius: 8px;">
+                        </div>
+                        <div class="payment-form-group" style="margin-top: 1.5rem;">
+                            <label for="pixCopyPaste">Código PIX (Copiar e Colar):</label>
+                            <div style="display: flex; gap: 0.5rem; align-items: stretch;">
+                                <input type="text" id="pixCopyPaste" readonly
+                                    style="flex: 1; background: var(--bg-light); padding: 0.875rem; border: 2px solid var(--border-color); border-radius: 8px; font-family: monospace; font-size: 0.9rem;">
+                                <button id="btnCopiarPix" onclick="copiarPixCode()"
+                                    style="padding: 0.875rem 1.5rem; background: var(--primary-color); color: var(--bg-white); border: none; border-radius: 8px; cursor: pointer; font-weight: 600; white-space: nowrap; transition: all 0.3s ease;">Copiar</button>
+                            </div>
+                        </div>
+                        <div id="pixStatusArea"
+                            style="margin-top: 1.5rem; padding: 1rem; border-radius: 8px; background: var(--bg-light);">
+                            <div id="pixStatusContent"
+                                style="display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+                                <div class="loading-spinner" id="statusSpinner"
+                                    style="display: inline-block; width: 20px; height: 20px; border: 2px solid rgba(0,0,0,0.1); border-top-color: var(--primary-color); border-radius: 50%; animation: spin 0.8s linear infinite;">
+                                </div>
+                                <span id="pixStatusText" style="color: var(--text-dark); font-weight: 600;">Aguardando
+                                    pagamento...</span>
+                            </div>
+                            <p id="pixStatusSubtext"
+                                style="margin-top: 0.5rem; color: var(--text-light); font-size: 0.85rem; text-align: center;">
+                                Verificando status a cada 5 segundos
+                            </p>
+                        </div>
+                        <p style="margin-top: 1rem; color: var(--text-light); font-size: 0.9rem;">
+                            O QR Code expira em <strong id="pixExpiresAt"></strong>
+                        </p>
+                        <p style="margin-top: 0.5rem; color: var(--text-light); font-size: 0.85rem;">
+                            Após o pagamento, você receberá uma confirmação por email.
+                        </p>
+                    </div>
+                </div>
+                <div id="cartaoForm" class="payment-form">
+                    <div class="payment-form-group">
+                        <label for="nomeCartao">Nome Completo do Titular *</label>
+                        <input type="text" id="nomeCartao" name="nomeCartao" required>
+                    </div>
+                    <div class="payment-form-group">
+                        <label for="cpfCartao">CPF do Titular *</label>
+                        <input type="text" id="cpfCartao" name="cpfCartao" maxlength="14" placeholder="000.000.000-00"
+                            required>
+                    </div>
+                    <div class="payment-form-group">
+                        <label for="numeroCartao">Número do Cartão *</label>
+                        <input type="text" id="numeroCartao" name="numeroCartao" maxlength="19"
+                            placeholder="0000 0000 0000 0000" required>
+                    </div>
+                    <div class="payment-form-row">
+                        <div class="payment-form-group">
+                            <label for="validadeCartao">Validade *</label>
+                            <input type="text" id="validadeCartao" name="validadeCartao" maxlength="5"
+                                placeholder="MM/AA" required>
+                        </div>
+                        <div class="payment-form-group">
+                            <label for="codigoCartao">Código de Segurança *</label>
+                            <input type="text" id="codigoCartao" name="codigoCartao" maxlength="4" placeholder="000"
+                                required>
+                        </div>
+                    </div>
+                    <button class="btn-payment" onclick="processarPagamento('cartao', this)">
+                        <span class="loading-spinner" id="cartaoSpinner"></span>
+                        <span id="cartaoButtonText">Enviar Pagamento</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="../js/checkout.js"></script>
+</body>
+</html>
